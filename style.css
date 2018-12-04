@@ -1,0 +1,43 @@
+
+body {
+    background: #fff; 
+    color: #000;
+    font: normal 13px Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif;
+}
+
+p {
+    line-height: 1.3em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #808080;
+}
+
+th {
+    font-weight: bold;
+    background-color: #b0b0b0;
+    padding: 5px
+}
+
+td {
+    background-color: #e0e0e0;
+    padding: 5px
+}
+
+blockquote.citation {
+    background-color: #e0e0e0;
+    border-left: 3px solid #00ff00;
+    padding-left: 6px;
+}
+
+pre {
+    background-color: #e0e0e0;
+    border: 1px solid #c0c0c0;
+    margin-left: 10px;
+    padding: 6px;
+}
+
+dt {
+    font-weight: bold;
+}
+

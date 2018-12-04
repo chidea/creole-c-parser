@@ -1,0 +1,26 @@
+= Escape Character
+
+~ is the escape character. It allows to escape ~**, ~//
+or free links like ~http://www.foo.com/ or ~www.foo.com.
+
+Note that ~ftp://ftp.foo.org/ does not start italics.
+
+It is let alone at end of line ~
+or if a space follows, like in ~ this sample.
+
+A tilde escapes itself ~~ like here.
+
+~*** boldness **  is still here because we used {{{~***}}}
+which only escapes the first *.
+
+
+~* List or
+~| table chars may also be escaped.
+
+~ is not escaping in nowiki like {{{~** here ~//}}} or
+{{{
+~** here ~//
+}}}
+
+Neither in plugin text like <<@ ~** this one>>.
+

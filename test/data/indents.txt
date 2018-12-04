@@ -1,0 +1,33 @@
+= Indented Blocks
+
+Blocks may be indented:
+: 1st level of indentation
+with more text
+on lines following.
+
+Next Block.
+
+: Again 1st level.
+: Followed by next block, same level.
+::: Now at 3rd level.
+:: And back
+to 2nd level.
+: And again 1st level.
+
+Quoted material may also:
+> Come at 1st level.
+>>>> Or at 4th level.
+>>>>>> Or at 6th level.
+>>> Or at
+3rd level, spanning
+lines.
+>>> Still at 3rd.
+
+We may mix
+: indented
+> and quoted 
+:: matrial
+>>> at different
+::: levels,
+: but is this pretty?
+

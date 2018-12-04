@@ -1,0 +1,6 @@
+﻿This is UTF-8 with BOM.
+
+Über ändern weiß
+
+Die Zeichen ÖÄÜäöü sind Umlaute. ß ist ebefalls speziell.
+

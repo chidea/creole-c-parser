@@ -1,0 +1,46 @@
+{{creole_c.png}}
+=== Tools
+
+**creole/c** was developed under Windows XP using Visual Studio 2005.
+Further the following tools were used:
+
+* flex 2.5.35 as coming with [[http://www.cygwin.com/|cygwin]] (the generated .c file 
+is included).
+* cmake 2.6, see http://www.cmake.org/.
+* doxygen 1.6.1 for generating the source code documentation, see www.doxygen.org.
+
+It should also build on Ubuntu 8.04 using gcc 4.2.4, flex 2.5.34 and
+cmake 2.6. (One must install cmake 2.6 before.)
+
+Building with other compilers on other platforms should work, as no Windows
+or Linux specific code is involved. But it's not tested yet...
+
+=== Building under Windows
+
+One can build **creole/c** outside of the source tree using cmake.
+Typically for developing with VS 2005 one would:
+
+* Unpack the sources in some directory, say ##C:\creole##.
+* Create a build directory, say ##C:\build-creole##.
+* Open a command window and ##cd## to the build directory.
+* Execute the command ##cmake -G 'Visual Studio 8 2005' ..\creole## to create the VS 2005 
+solution file ##C:\build-creole\creole.sln## (assuming that ##cmake## is on 
+your ##%PATH%##, of course).
+* Open the solution, the target ##ALL_BUILD## will build anything but the docs.
+
+The C parser API docs are build with the ##api-docs## target.
+Note that the documentation is generated in the source tree in
+##doc/api/html##.
+
+The ##INSTALL## target will copy the build results into the folders
+##bin## and ##lib## of the source tree under Windows.
+
+=== Building under Linux
+
+Works principally as under Windows:
+* Unpack the sources in some directory, say ##./creole##.
+* ##mkdir ./build-creole##
+* ##cd ./build-creole##
+* ##cmake -G 'Unix Makefiles' ../creole##
+* ##make##
+

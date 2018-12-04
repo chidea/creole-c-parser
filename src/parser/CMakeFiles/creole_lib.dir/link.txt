@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcreolelib.a  CMakeFiles/creole_lib.dir/cwrapper.o CMakeFiles/creole_lib.dir/parser.o CMakeFiles/creole_lib.dir/lex.yy.o CMakeFiles/creole_lib.dir/ConvertUTF.o
+/usr/bin/ranlib libcreolelib.a

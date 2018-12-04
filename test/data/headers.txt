@@ -1,0 +1,24 @@
+=Headers
+  ==  2nd Level
+Lines following are new blocks.
+== Even if\\
+a hard line break is used.
+ === 3nd Level with trailing = ========
+==== 4rd Level
+===== 5th Level
+ ====== 6th Level
+ ======= 7th Level does not exist, is 6th
+=== == 3rd Level Again
+
+==== Headers //may// __contain__ ##Markup, __even mixed__##
+==== Markup // does not
+span over blocks.
+
+<<! === Header in Parsed //Plugin// Text ===
+>>
+
+======= 7th Level does not exists, is 6th
+======== 8th Level does not exists, is 6th
+
+===== Trailing = may be of any count ======================================
+

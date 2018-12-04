@@ -1,0 +1,37 @@
+= Plugins =
+
+== Reparsing the Text
+
+<<! * a list
+* continued >>
+
+<<! ** Bold ** stuff >> here. And <<!//italic//>> here. Let alone >>.
+
+Sole >> created with <<! >>>> like this.
+
+<<! A **paragraph** >> === A Section ===
+
+== Raw Text
+
+<<@ * not a list
+but ** raw ** text >>
+
+Also <<@ //raw** stuff >>>>> here (saw the >>> ?).
+
+<<@ <p>Here we are at block level,</p> >> and this text starts
+a new block.
+
+But <<@ <i>in-between</i> >> we do not start a new block.
+
+The follwing text is
+<<@ not at block start >>==== But here starts a new subsection
+
+== Replacement Text
+
+A replacement <<< text >>> is hidden as comment.
+<<< here comes more >>> Continuing the block.
+
+<<< a block elem >>>
+
+And here it all ends...
+

@@ -1,0 +1,19 @@
+= Nowiki Text
+
+Nowiki block:
+{{{  
+  ** not ** formatted
+    //in __any__ way
+
+ }}}
+with the exception that the previous line starts with }}}, not a blank
+ like this one
+}}}   
+And here a normal block.
+
+Inline {{{**not** formatted [[nowiki]]}}} material
+may even span {{{several
+**lines** //like}}} the one before.
+
+{{{ //Inline **nowiki** }}} may also start a block.
+

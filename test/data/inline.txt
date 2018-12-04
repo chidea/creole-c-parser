@@ -1,0 +1,36 @@
+= Inline markup tests.
+
+Inline **bold**, //italic//, ##monospace##, __underline__, ^^super^^script,
+,,sub,,script. Mixed **bold //italic ##monospace##//** or //__**bold**
+underlined__ italic// is possible. Or even ^^**bold** and
+//italic//^^ in super or //,,italic or **bold**,,// in subscript.
+
+**Bold** at start of block.
+
+//Italic// at start of block.
+
+##Monospace## at start of block.
+
+**//##Monospace## mixed// content** at start of block.
+
+,,Subscript,, at start of block.
+
+^^Superscript^^ at start of block.
+
+Formats remain **til end //of block.
+
+This block ist neither bold nor italic.
+
+Inline {{{verbatim **like //this//** may
+span lines
+and ##more## lines}}} til ended.
+
+Plugin text <<may also
+span several lines>> but is ignored <<without>> handler.
+
+Plugin text <<@may be replaced **verbatim**>> in the text,
+or it may <<!**be reparsed** //by the parser//>> again.
+
+Replacement <<<text is not
+ignored>>> but included as comment.
+

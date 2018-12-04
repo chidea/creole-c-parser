@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="creole/c">
+<title>Hacking creole/c</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body><p><img src="creole_c.png"></img>
+</p>
+<h3> Tools</h3>
+<p><b>creole/c</b> was developed under Windows XP using Visual Studio 2005.
+Further the following tools were used:
+</p>
+<ul><li> flex 2.5.35 as coming with <a href="http://www.cygwin.com/">cygwin</a> (the generated .c file 
+is included).
+</li><li> cmake 2.6, see <a href="http://www.cmake.org/">http://www.cmake.org/</a>.
+</li><li> doxygen 1.6.1 for generating the source code documentation, see <a href="http://www.doxygen.org">www.doxygen.org</a>.
+</li></ul>
+<p>It should also build on Ubuntu 8.04 using gcc 4.2.4, flex 2.5.34 and
+cmake 2.6. (One must install cmake 2.6 before.)
+</p>
+<p>Building with other compilers on other platforms should work, as no Windows
+or Linux specific code is involved. But it's not tested yet...
+</p>
+<h3> Building under Windows</h3>
+<p>One can build <b>creole/c</b> outside of the source tree using cmake.
+Typically for developing with VS 2005 one would:
+</p>
+<ul><li> Unpack the sources in some directory, say <tt>C:\creole</tt>.
+</li><li> Create a build directory, say <tt>C:\build-creole</tt>.
+</li><li> Open a command window and <tt>cd</tt> to the build directory.
+</li><li> Execute the command <tt>cmake -G 'Visual Studio 8 2005' ..\creole</tt> to create the VS 2005 
+solution file <tt>C:\build-creole\creole.sln</tt> (assuming that <tt>cmake</tt> is on 
+your <tt>%PATH%</tt>, of course).
+</li><li> Open the solution, the target <tt>ALL_BUILD</tt> will build anything but the docs.
+</li></ul>
+<p>The C parser API docs are build with the <tt>api-docs</tt> target.
+Note that the documentation is generated in the source tree in
+<tt>doc/api/html</tt>.
+</p>
+<p>The <tt>INSTALL</tt> target will copy the build results into the folders
+<tt>bin</tt> and <tt>lib</tt> of the source tree under Windows.
+</p>
+<h3> Building under Linux</h3>
+<p>Works principally as under Windows:
+</p>
+<ul><li> Unpack the sources in some directory, say <tt>./creole</tt>.
+</li><li> <tt>mkdir ./build-creole</tt>
+</li><li> <tt>cd ./build-creole</tt>
+</li><li> <tt>cmake -G 'Unix Makefiles' ../creole</tt>
+</li><li> <tt>make</tt>
+</li></ul>
+</body>
+</html>

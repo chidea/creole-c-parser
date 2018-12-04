@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="creole/c">
+<title>creole/c HTML Converter</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body><h4> NAME</h4>
+<p>creole - Wiki Creole to HTML converter
+</p>
+<h4> SYNOPSIS</h4>
+<p><b>creole</b> [<tt>-h</tt>] [<tt>-b</tt>] [<tt>-s</tt> #] [<tt>-t</tt> #] [<tt>-l</tt> #] [<tt>-o</tt> #] <i>INPUT-FILE</i>
+</p>
+<h4> DESCRIPTION</h4>
+<p><b>creole</b> is a converter from Wiki Creole 1.0 to HTML. It converts a
+text file into a single HTML page.
+</p>
+<p>The <a href="http://www.wikicreole.org/wiki/Creole1.0">Wiki Creole 1.0 specification</a> and most
+of the <a href="http://www.wikicreole.org/wiki/CreoleAdditions">additions</a> are implemented 
+by the converter, with the following exceptions:
+</p>
+<ul><li> Block-level elements (like lists) are not allowed in table cells.
+</li><li> The alternate link syntax <tt>[[ -> ]]</tt> is not implemented.
+</li></ul>
+<p>In addition one may specify the size of images similar as in DokuWiki:
+<tt>{{ image.png ? 300 }}</tt> spezifies an image of 300 pixels width,
+<tt>{{ image.png ? 200x150 }}</tt> an image size of 200x150 pixels, and
+<tt>{{ image.png ? 50% }}</tt> an image of 50% width.
+</p>
+<p>Currently there is only one plugin defined: <tt>&lt;&lt; ! <i>text</i> >></tt> inserts the
+raw <tt><i>text</i></tt> into the output.
+</p>
+<h4> OPTIONS</h4>
+<dl><dt> <tt>-o</tt> <i>OUTPUT-FILE</i> 
+</dt><dd> Name of the output HTML file. If no output file name is given the output is 
+written to <tt>stdout</tt>.
+</dd><dt> <tt>-s</tt> <i>STYLE-SHEET</i>
+</dt><dd> Add reference to CSS style sheet to HTML header of generated file. The style
+sheets content is not included in the HTML output.
+</dd><dt> <tt>-l</tt> <i>INTERNAL-URL</i>
+</dt><dd> Set given URL as base URL for internal links.
+</dd><dt> <tt>-t</tt> <i>TITLE</i>
+</dt><dd> Defines a title for the generated HTML page.
+</dd><dt> <tt>-b</tt>
+</dt><dd> Output only the <tt>&lt;body></tt> contents of the HTML page, not the <tt>&lt;html></tt> 
+and <tt>&lt;head></tt> tags.
+This option may be useful if one wants to post-process the generated (X)HTML.
+</dd><dt> <b><tt>-h</tt></b>
+</dt><dd> Displays a short usage information and exits the program.
+</dd></dl>
+<h4> CHARACTER ENCODING</h4>
+<p>The input text file must be in some <i>ASCII-compatible</i> encoding.
+This means that any single byte in the text which is a valid ASCII code point must 
+represent that ASCII character. This includes encodings like ISO 8859-1 (Latin 1), 
+ISO 8859-5 and UTF-8, but <b>not</b> Big5 or Shift_JIS for example.
+</p>
+<p>The encoding of the generated HTML page is the same as of the input file.
+</p>
+<p>If the input file is in UTF-8 encoding with BOM, the encoding of the 
+generated HTML file is stated in the metadata of the HTML output. In any other 
+case there is not encoding information written to the HTML file.
+</p>
+<p>Any newlines in the input text are converted to Unix(TM) style <tt>\n</tt> newlines.
+Thus Windows(TM) style <tt>\r\n</tt> newlines and Macintosh(TM) style <tt>\r</tt>
+newlines are converted to sole <tt>\n</tt>'s.
+</p>
+<h4> AUTHOR</h4>
+<p>Written and maintained by Klaus Drescher.
+</p>
+<h4> COPYRIGHT</h4>
+<p>Copyright (C) 2010 Klaus Drescher
+</p>
+<p>This software is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+</p>
+</body>
+</html>

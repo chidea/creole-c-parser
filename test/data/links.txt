@@ -1,0 +1,50 @@
+= Links =
+
+Interwiki [[link to other page]] in [[this]] wiki.
+
+Interwiki [[link_to_other_page.html|link to other page]] in
+[[this|//this//]] wiki.
+
+Link to other [[creole:wiki]].
+
+Link to [[www.creole.org]] or other [[www.creole.org|destination //URL//]].
+
+Link to free URL like www.creole.org, http://www.creole.org/,
+https://www.creole.org/, ftp://someserver, FTP://someserver,
+mailto:some.address@server.net or GOPHER://www.gopher.org/foo
+or file:///e:/foo/text.txt.
+
+== Formatting in Links
+
+This is [[foo|**a //ill-formatted// link]] in text.
+And this a [[**even more ill**|sample]].
+
+An end ]] if link without start.
+And a link [[ foo |[[foo|in a link]] ]].
+And a [[ www.foo.org | {{image.jpg|image}} in a link]].
+
+== Samples from the Spec
+
+[[link]] \\
+[[MyBigPage|Go to my page]] \\
+[[http://www.wikicreole.org/]] \\
+http://www.rawlink.org/, http://www.another.rawlink.org \\
+[[http://www.wikicreole.org/|Visit the WikiCreole website]] \\
+[[Weird Stuff|**Weird** //Stuff//]] \\
+[[Ohana:WikiFamily]] 
+
+== Italics And Url Ambiguity 
+
+This is an //italic// text. \\
+This is a url: http://www.wikicreole.org. \\
+This is what can go wrong://this should be an italic text//.\\
+How about //a link, like http://example.org, in italic// text? \\
+Formatted fruits, for example://apples//, oranges, **pears** ... \\
+	& \\
+How about a link, like http://example.org, in italic// text?
+
+== Tables And Links Ambiguity
+
+| table cell | table cell | table cell |
+| {{{pre|cell}}} | {{image|cell}} | [[cell|link]] |
+

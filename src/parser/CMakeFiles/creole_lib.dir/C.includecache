@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/odroid/creole/src/parser/ConvertUTF.c
+ConvertUTF.h
+/home/odroid/creole/src/parser/ConvertUTF.h
+stdio.h
+-
+
+/home/odroid/creole/src/parser/ConvertUTF.h
+

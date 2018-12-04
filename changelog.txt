@@ -1,0 +1,15 @@
+
+=== creole/c Changes
+
+==== V 0.1 (Oct 2009)
+* Initial version.
+
+==== V 0.2 (Apr 2010)
+* Parser:
+** Giving up the block parsing API, replaced ##CreoleParseBlock## by ##CreoleParseDocument## (fixing an error where the parser state was not correctly maintained).
+** Placeholders are handled by a callback function now instead of inserting a ##<pre>## tag, see ##CreoleSetPlaceholderHandler##.
+* Converter:
+** Fixed an error when output was sent to stdout.
+** The ##<body>## tags are no longer printed with the ##-b## option.
+** Defined a plugin such that ##~<< ! //text// >>## is replaced by the raw ##//text//##.
+

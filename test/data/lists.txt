@@ -1,0 +1,75 @@
+= Lists =
+
+== Bullet Lists ==
+
+Some Lists:
+* item 1
+* item 2
+ ** item 2.1 - not **bold**
+ ****item 2.1.1.1
+ *** back to item 2.1.2
+ ***** item 2.1.2.1.1
+** item 2.2
+spanning 2 lines
+ * item 3
+spanning 2 line too.
+
+== Ordered Lists ==
+
+Same with ordering:
+# item 1
+ # item 2
+## item 2.1 - no ##monospace##
+  ####item 2.1.1.1
+## item 2.2
+spanning 2 lines
+# item 3
+
+== Mix Em ==
+
+Mixed style lists:
+* item 1
+** item 1.1
+## item 1.2
+### item 1.2.1
+*** item 1.2.2
+## item 1.3
+** item 1.4
+# item 2
+
+== No Lists in Tables ==
+
+No lists in table cells:
+|= A Head |= B Head
+| * no list here
+| Cell 2.1 | * and no here
+in this cell
+ * but here
+
+== Definition Lists
+
+; Definition Term : What is defined.
+; Vague Term
+: May be defined
+by lengthy text
+spanning lines by lines.
+; Another Term: Goes here.
+
+**Broken Markup:**
+; TermA
+: Definition A.
+: But this should be quoted.
+
+; TermB
+* Somewhat broken.
+: By the list before.
+
+=== Bold, Italics, Links, Pre in Lists
+
+# ##mono## item
+* **bold** item
+* //italic// item
+# item about a [[certain page]]
+# {{{ //this// is **not** [[processed]] }}}
+
+

@@ -1,0 +1,76 @@
+==== NAME
+
+creole - Wiki Creole to HTML converter
+
+==== SYNOPSIS
+
+**creole** [##-h##] [##-b##] [##-s## #] [##-t## #] [##-l## #] [##-o## #] //INPUT-FILE//
+
+==== DESCRIPTION
+
+**creole** is a converter from Wiki Creole 1.0 to HTML. It converts a
+text file into a single HTML page.
+
+The [[http://www.wikicreole.org/wiki/Creole1.0|Wiki Creole 1.0 specification]] and most
+of the [[http://www.wikicreole.org/wiki/CreoleAdditions|additions]] are implemented 
+by the converter, with the following exceptions:
+* Block-level elements (like lists) are not allowed in table cells.
+* The alternate link syntax ##~[[ -> ]]## is not implemented.
+
+In addition one may specify the size of images similar as in DokuWiki:
+##~{{ image.png ? 300 }}## spezifies an image of 300 pixels width,
+##~{{ image.png ? 200x150 }}## an image size of 200x150 pixels, and
+##~{{ image.png ? 50% }}## an image of 50% width.
+
+Currently there is only one plugin defined: ##~<< ! //text// >>## inserts the
+raw ##//text//## into the output.
+
+==== OPTIONS
+
+; ##-o## //OUTPUT-FILE// 
+: Name of the output HTML file. If no output file name is given the output is 
+written to ##stdout##.
+; ##-s## //STYLE-SHEET//
+: Add reference to CSS style sheet to HTML header of generated file. The style
+sheets content is not included in the HTML output.
+; ##-l## //INTERNAL-URL//
+: Set given URL as base URL for internal links.
+; ##-t## //TITLE//
+: Defines a title for the generated HTML page.
+; ##-b##
+: Output only the ##<body>## contents of the HTML page, not the ##<html>## 
+and ##<head>## tags.
+This option may be useful if one wants to post-process the generated (X)HTML.
+; **##-h##**
+: Displays a short usage information and exits the program.
+
+==== CHARACTER ENCODING
+
+The input text file must be in some //ASCII-compatible// encoding.
+This means that any single byte in the text which is a valid ASCII code point must 
+represent that ASCII character. This includes encodings like ISO 8859-1 (Latin 1), 
+ISO 8859-5 and UTF-8, but **not** Big5 or Shift_JIS for example.
+
+The encoding of the generated HTML page is the same as of the input file.
+
+If the input file is in UTF-8 encoding with BOM, the encoding of the 
+generated HTML file is stated in the metadata of the HTML output. In any other 
+case there is not encoding information written to the HTML file.
+
+Any newlines in the input text are converted to Unix(TM) style ##\n## newlines.
+Thus Windows(TM) style ##\r\n## newlines and Macintosh(TM) style ##\r##
+newlines are converted to sole ##\n##'s.
+
+==== AUTHOR
+
+Written and maintained by Klaus Drescher.
+
+==== COPYRIGHT
+
+Copyright (C) 2010 Klaus Drescher
+
+This software is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+

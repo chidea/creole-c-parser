@@ -1,0 +1,34 @@
+= Images.
+
+Images are {{inline.png}} inline material.
+Images are {{inline.png|inline}} inline material.
+
+But may be used as sole block content:
+
+{{block.png|At start of block.}}
+
+The refs may be URLs as in linke, like this
+{{ creole:image.jpg ? 50% | image 1}} or
+this {{ www.myurl.com/images/image.jpg? 40x40 }} one.
+
+Image alt texts are {{file:///e:/image.png?50x30%| **not**}} not parsed.
+
+Images may be contained in links [[ link |like {{file:///e:/foo.png|foo}}
+this]] one.
+
+}} at start of block or in }} do not harm.
+
+===== Image in {{image.png}} header is allowed.
+
+-----
+== Image Sizing
+Test of sizes:
+
+{{ image.png ? 100 x 50}} 100 x 50 px.
+
+{{ image.png ? 50% }} 50%.
+
+{{ image.png ? 50 }} 50px.
+
+{{ image.png ? 50 x 30% }} 50px x 30%.
+

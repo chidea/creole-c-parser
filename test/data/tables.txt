@@ -1,0 +1,29 @@
+= Tables
+
+The first row determines the number of columns:
+
+|= Header 1 |= Header 2 |= Header 3 |= Header 4 |
+| Cell 1 | Cell 2, but no more
+| Cell 1 | Cell 2 | Cell 3 | Cell 4 |
+| Cell 1 | Cell 2 | Cell 3 | Cell 4 
+| Cell 1 | Cell 2 | Cell 3 | Cell 4  | Cell 5 ?
+
+The trailing | may be missing:
+|= Header 1 | Header 2 | Header 3
+|= Cell 1 | Cell 2 | Cell 3 |
+|= Cell 1 |
+|= Cell 1 |||
+
+Rows may span several lines:
+|= Header 1 |= Header 2 |= Header 3 |= Header 4 |
+| Cell 1 | Cell 2
+which spans 3
+lines | Cell 3 | Cell 4
+| Cell 1 | Cell 2 | Cell 3 | Cell 4 
+
+Cells may contain inline markup, but no blocks:
+| **bold header** | //italic __header__// | [[link | a link]]
+| * no list here
+| ## neither here
+| a cell \\ with a line \\ break | same\\here |
+

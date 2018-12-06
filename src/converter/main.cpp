@@ -40,7 +40,8 @@ void usage(int err)
         "       -t #   define page title\n"
         "       -l #   define internal link URL\n"
         "       -b     output <body> contents only without head\n"
-        "       -h     display this help\n",
+        "       -h     display this help\n"
+        "       <infile> can be - to read from standard input\n",
         stderr);
     exit(err);
 }

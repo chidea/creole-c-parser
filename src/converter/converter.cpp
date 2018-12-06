@@ -128,10 +128,12 @@ bool Converter::hasUtf8Bom(FILE* inFile)
 
 int Converter::convert()
 {
+    bool isFromStdin = !strcmp(inputFileName_, "-");
     // open files
     FILE* inFile = 0;
     if (inputFileName_) {
-        inFile = fopen(inputFileName_, "rb");
+        if(isFromStdin) inFile = stdin;
+        else inFile = fopen(inputFileName_, "rb");
         if (!inFile) {
             setError("Could not open input file.");
             return 1;
@@ -140,7 +142,7 @@ int Converter::convert()
         setError("No input file given.");
         return 2;
     }
-    bool isUtf8 = hasUtf8Bom(inFile);
+    bool isUtf8 = isFromStdin? false : hasUtf8Bom(inFile);
 
     outputFile_ = stdout;
     if (outputFileName_) {
@@ -188,7 +190,7 @@ int Converter::convert()
         }
         fputs("</head>\n", outputFile_);
     }
-
+    /*
     // read and parse input
     if (fseek(inFile, 0, SEEK_END)) {
         setError("Could not read input file.");
@@ -215,8 +217,46 @@ int Converter::convert()
         setError("Parser error.");
         return 6;
     }
-    free(text);
-
+    free(text);*/
+#define MAX_LEN 127
+    char line[MAX_LEN], *rst, *linep=(char *)0, *lineaddp;
+    int linelen;
+    while (!feof(inFile)){
+      if(rst = fgets(line, MAX_LEN, inFile)){
+        int len = strlen(rst);
+        if(len == MAX_LEN-1){ // line is unfinished or fits in line max length
+          if(!linep){ // memory single filled
+            linep = (char *)malloc(sizeof(char)*MAX_LEN);
+            strncpy(linep, line, sizeof(char)*MAX_LEN);
+            linelen=len;
+          }else{ // memory double+ filled
+            linep = (char *)realloc((void *)linep, sizeof(char)*(linelen+MAX_LEN));
+            strncpy(linep+linelen, line, sizeof(char)*MAX_LEN);
+            linelen+=len;
+          }
+        }else{ // line is finished
+          if(linep){ // has memory longer than MAX_LEN and line is finished
+            linep = (char *)realloc((void *)linep, sizeof(char)*(linelen+len+1));
+            strncpy(linep+linelen, line, sizeof(char)*(len+1));
+            rst = linep;
+            len += linelen;
+          }
+          int err = CreoleParseDocument(parser, rst, (int)len);
+          if (err != CREOLE_OK) {
+            setError("Parser error.");
+            return 6;
+          }
+          if(linep){
+            free(linep);
+            linep = 0;
+            linelen = 0;
+          }
+        }
+      }else if(ferror(inFile)){
+        setError("Cannot read line from input.");
+        return 6;
+      }
+    }
     if (!outputBodyOnly()) {
         fputs("\n</html>\n", outputFile_);
     }

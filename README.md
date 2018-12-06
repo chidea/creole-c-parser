@@ -2,8 +2,11 @@
 Wiki Creole parser and HTML converter based on [creole/c](http://creolec.sourceforge.net/)
 
 ## main difference
-This source is currently an exact same as [creole/c](http://creolec.sourceforge.net/) but edited to compile on linux.
-The original creole/c had some missing headers and permission issues on linux systems.
+This source is based on [creole/c](http://creolec.sourceforge.net/) and edited for with features below.
+- [x] Fully compilable on linux
+  - The original creole/c had some missing headers and permission issues on linux systems.
+- [x] Supports input from standard input
+  - use `-` as input file name to read from stdin
 
 ## how to build on linux
 ```

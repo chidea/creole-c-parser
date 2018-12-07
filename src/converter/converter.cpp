@@ -219,7 +219,8 @@ int Converter::convert()
     }
     free(text);*/
 #define MAX_LEN 127
-    char line[MAX_LEN], *rst, *linep=(char *)0, *lineaddp;
+/*
+    char line[MAX_LEN], *rst, *linep=(char *)0;
     int linelen;
     while (!feof(inFile)){
       if(rst = fgets(line, MAX_LEN, inFile)){
@@ -241,7 +242,7 @@ int Converter::convert()
             rst = linep;
             len += linelen;
           }
-          int err = CreoleParseDocument(parser, rst, (int)len);
+          int err = CreoleParseDocument(parser, rst, len);
           if (err != CREOLE_OK) {
             setError("Parser error.");
             return 6;
@@ -256,7 +257,32 @@ int Converter::convert()
         setError("Cannot read line from input.");
         return 6;
       }
+    }*/
+    char line[MAX_LEN], *textp=(char *)0, *rst;
+    int textlen;
+    while (!feof(inFile)){
+      if(rst = fgets(line, MAX_LEN, inFile)){
+        int len = strlen(line);
+        if(!textp){
+          textp = (char *)malloc(sizeof(char)*(len+1));
+          strncpy(textp, line, sizeof(char)*(len+1));
+          textlen = len;
+        }else{
+          textp = (char *)realloc(textp, sizeof(char)*(textlen+len+1));
+          strncpy(textp+textlen, line, sizeof(char)*(len+1));
+          textlen += len;
+        }
+      }else if(ferror(inFile)){
+        setError("Cannot read line from input.");
+        return 6;
+      }
     }
+    int err = CreoleParseDocument(parser, textp, textlen);
+    if (err != CREOLE_OK) {
+      setError("Parser error.");
+      return 6;
+    }
+    
     if (!outputBodyOnly()) {
         fputs("\n</html>\n", outputFile_);
     }
